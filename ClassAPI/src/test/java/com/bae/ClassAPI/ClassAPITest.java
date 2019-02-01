@@ -38,6 +38,8 @@ public class ClassAPITest {
 		assertEquals(1, testTrainee1.getTraineeID());
 		assertEquals("jimbo", testTrainee1.getTraineeName());
 	}
+	
+	
 
 
 

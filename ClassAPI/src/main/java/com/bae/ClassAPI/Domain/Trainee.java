@@ -3,6 +3,7 @@ package com.bae.ClassAPI.Domain;
 
 public class Trainee {
 
+	private Long  Id;
 	private int traineeID;
 	private String traineeName;
 	
