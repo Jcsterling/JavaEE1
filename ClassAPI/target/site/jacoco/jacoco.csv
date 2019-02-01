@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+ClassAPI,com.bae.ClassAPI.util,JSONUtil,11,8,0,0,2,3,2,1,2,1
+ClassAPI,com.bae.ClassAPI.rest,ClassRoomController,27,0,0,0,7,0,6,0,6,0
+ClassAPI,com.bae.ClassAPI.rest,JAXActivator,3,0,0,0,1,0,1,0,1,0
+ClassAPI,com.bae.ClassAPI,App,7,0,0,0,3,0,2,0,2,0
+ClassAPI,com.bae.ClassAPI.business,ClassServiceImpl,23,0,0,0,5,0,5,0,5,0
+ClassAPI,com.bae.ClassAPI.Domain,Classroom,27,15,0,0,12,6,5,3,5,3
+ClassAPI,com.bae.ClassAPI.Domain,Trainee,9,23,0,0,4,10,1,5,1,5
+ClassAPI,com.bae.ClassAPI.Repository,ClassServiceDBImpl,69,0,4,0,16,0,7,0,5,0

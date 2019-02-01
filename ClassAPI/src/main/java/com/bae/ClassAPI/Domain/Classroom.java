@@ -3,13 +3,19 @@ package com.bae.ClassAPI.Domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+@Entity
 public class Classroom {
 
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
 	private int classroomID;
 	private String trainer;
@@ -24,6 +30,13 @@ public class Classroom {
 		
 		classroomID = 1;
 		trainer = "jamerson";
+		
+	}
+	
+
+	public Classroom(int classroomID , String trainer) {
+		setClassroomID(classroomID);
+		setTrainer(trainer);
 		
 	}
 	

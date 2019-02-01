@@ -28,7 +28,7 @@ public class ClassServiceDBImpl implements ClassRepository{
 	
 	public String getAllClassrooms() {
 		
-		TypedQuery<Classroom> query = em.createQuery("SELECT m FROM Account m", Classroom.class);
+		TypedQuery<Classroom> query = em.createQuery("SELECT c FROM Classroom c", Classroom.class);
 		
 //		Query query = em.createQuery("SELECT m FROM ACCOUNT m", Account.class);
 //		List<Account> accounts = (List<Account>) query.getResultList();
@@ -38,9 +38,9 @@ public class ClassServiceDBImpl implements ClassRepository{
 
 
 	@Transactional(REQUIRED)
-	public String createClassroom(String account) {
-		Classroom objectAccount = jsonutil.getObjectForJSON(account, Classroom.class);
-		em.persist(objectAccount);
+	public String createClassroom(String classroom) {
+		Classroom objectClass = jsonutil.getObjectForJSON(classroom, Classroom.class);
+		em.persist(objectClass);
 		return "{\"message\": \"CLASSROOM sucessfully added\"}";
 	}
 
@@ -59,8 +59,8 @@ public class ClassServiceDBImpl implements ClassRepository{
 		Classroom classToDelete = em.find(Classroom.class, id);
 		if (classToDelete != null) {
 			em.remove(classToDelete);
-			Classroom objectAccount = jsonutil.getObjectForJSON(classroom, Classroom.class);
-			em.persist(objectAccount);
+			Classroom objectClass = jsonutil.getObjectForJSON(classroom, Classroom.class);
+			em.persist(objectClass);
 		}
 		
 		return "{\"message\": \"class sucessfully updated\"}";

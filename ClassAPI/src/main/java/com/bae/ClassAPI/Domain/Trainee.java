@@ -1,8 +1,14 @@
 package com.bae.ClassAPI.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+@Entity
 public class Trainee {
 
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long  Id;
 	private int traineeID;
 	private String traineeName;

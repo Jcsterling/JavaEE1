@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassServiceDBImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ClassAPI</a> &gt; <a href="index.source.html" class="el_package">com.bae.ClassAPI.Repository</a> &gt; <span class="el_source">ClassServiceDBImpl.java</span></div><h1>ClassServiceDBImpl.java</h1><pre class="source lang-java linenums">package com.bae.ClassAPI.Repository;
+
+import static javax.transaction.Transactional.TxType.REQUIRED;
+import static javax.transaction.Transactional.TxType.SUPPORTS;
+
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+
+import com.bae.ClassAPI.Domain.Classroom;
+import com.bae.ClassAPI.util.JSONUtil;
+
+
+
+
+@Transactional(SUPPORTS)
+@Default
+<span class="nc" id="L21">public class ClassServiceDBImpl implements ClassRepository{</span>
+
+	@PersistenceContext(unitName = &quot;primary&quot;)
+	private EntityManager em;
+	
+	@Inject
+	private JSONUtil jsonutil;
+	
+	public String getAllClassrooms() {
+		
+<span class="nc" id="L31">		TypedQuery&lt;Classroom&gt; query = em.createQuery(&quot;SELECT c FROM Classroom c&quot;, Classroom.class);</span>
+		
+//		Query query = em.createQuery(&quot;SELECT m FROM ACCOUNT m&quot;, Account.class);
+//		List&lt;Account&gt; accounts = (List&lt;Account&gt;) query.getResultList();
+//		String jsonaccount = jsonutil.getJSONForObject(accounts);
+<span class="nc" id="L36">		return jsonutil.getJSONForObject(query.getResultList());</span>
+	}
+
+
+	@Transactional(REQUIRED)
+	public String createClassroom(String classroom) {
+<span class="nc" id="L42">		Classroom objectClass = jsonutil.getObjectForJSON(classroom, Classroom.class);</span>
+<span class="nc" id="L43">		em.persist(objectClass);</span>
+<span class="nc" id="L44">		return &quot;{\&quot;message\&quot;: \&quot;CLASSROOM sucessfully added\&quot;}&quot;;</span>
+	}
+
+	@Transactional(REQUIRED)
+	public String deleteClassroom(Long id) {
+<span class="nc" id="L49">		Classroom classToDelete = em.find(Classroom.class, id);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		if (classToDelete != null) {</span>
+<span class="nc" id="L51">			em.remove(classToDelete);</span>
+		}
+		
+<span class="nc" id="L54">		return &quot;{\&quot;message\&quot;: \&quot;class sucessfully deleted\&quot;}&quot;;</span>
+	}
+
+	@Transactional(REQUIRED)
+	public String updateClassroom(Long id, String classroom) {
+<span class="nc" id="L59">		Classroom classToDelete = em.find(Classroom.class, id);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if (classToDelete != null) {</span>
+<span class="nc" id="L61">			em.remove(classToDelete);</span>
+<span class="nc" id="L62">			Classroom objectClass = jsonutil.getObjectForJSON(classroom, Classroom.class);</span>
+<span class="nc" id="L63">			em.persist(objectClass);</span>
+		}
+		
+<span class="nc" id="L66">		return &quot;{\&quot;message\&quot;: \&quot;class sucessfully updated\&quot;}&quot;;</span>
+	}
+
+
+	
+
+
+
+	
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
