@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TraineeMap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ClassAPI</a> &gt; <a href="index.source.html" class="el_package">com.bae.persitence.repository</a> &gt; <span class="el_source">TraineeMap.java</span></div><h1>TraineeMap.java</h1><pre class="source lang-java linenums">package com.bae.persitence.repository;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.bae.persistence.domain.Classroom;
+import com.bae.persistence.domain.Trainee;
+import com.bae.util.JSONUtil;
+
+<span class="nc" id="L10">public class TraineeMap implements TraineeRepository {</span>
+	
+<span class="nc" id="L12">	JSONUtil jsonutil = new JSONUtil();</span>
+<span class="nc" id="L13">	Classroom classroom = new Classroom();</span>
+<span class="nc" id="L14">	ClassroomMap classroomap = new ClassroomMap();</span>
+<span class="nc" id="L15">	private Map&lt;ClassroomMap, Trainee&gt; traineeMap = new HashMap&lt;&gt;();</span>
+
+
+	public String getAllTrainees() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L20">		return null;</span>
+	}
+
+	
+	public String createTrainee(String trainee) {
+//		Trainee jsontrainee = jsonutil.getObjectForJSON(trainee, Trainee.class);
+//		traineeMap.put(classroomap.getClassMap().get(key).getClassroomID(), jsontrainee);
+		
+<span class="nc" id="L28">		return &quot;work please&quot;; </span>
+	}
+
+	
+	public String deleteTrainee(Long id) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L34">		return null;</span>
+	}
+
+	
+	public String updateTrainee(Long id, String Trainee) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L40">		return null;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
